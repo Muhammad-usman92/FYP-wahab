@@ -12,6 +12,51 @@ import {
   SocialIcons,
 } from "./HeaderStyles";
 
-const Header = () => <div>Header</div>;
+const Header = () => (
+  <Container>
+    <Div1>
+      <Link href="/">
+        <a
+          style={{
+            display: "flex",
+            alignItems: "center",
+            color: "white",
+          }}
+        >
+          <DiCssdeck size="3rem" />
+          <span style={{ fontSize: "2.5rem" }}>Porfolio</span>
+        </a>
+      </Link>
+    </Div1>
+    <Div2>
+      <li>
+        <Link href="#projects">
+          <NavLink>Projects</NavLink>
+        </Link>
+      </li>
+      <li>
+        <Link href="#tech">
+          <NavLink>Technologies</NavLink>
+        </Link>
+      </li>
+      <li>
+        <Link href="#about">
+          <NavLink>About</NavLink>
+        </Link>
+      </li>
+    </Div2>
+    <Div3>
+      <SocialIcons href="#">
+        <AiFillGithub size="3rem" />
+      </SocialIcons>
+      <SocialIcons href="#">
+        <AiFillLinkedin size="3rem" />
+      </SocialIcons>
+      <SocialIcons href="#">
+        <AiFillInstagram size="3rem" />
+      </SocialIcons>
+    </Div3>
+  </Container>
+);
 
 export default Header;
