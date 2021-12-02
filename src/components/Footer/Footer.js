@@ -26,6 +26,10 @@ const Footer = () => {
           <LinkTitle>Email</LinkTitle>
           <LinkItem href="#">Kwahab789@gmail.com</LinkItem>
         </LinkColumn>
+        <LinkColumn>
+          <LinkTitle>Address</LinkTitle>
+          <LinkItem href="#">Hyderabad, Sindh</LinkItem>
+        </LinkColumn>
       </LinkList>
       <SocialIconsContainer>
         <CompanyContainer>
