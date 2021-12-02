@@ -15,7 +15,16 @@ import {
 } from "./FooterStyles";
 
 const Footer = () => {
-  return <FooterWrapper></FooterWrapper>;
+  return (
+    <FooterWrapper>
+      <LinkList>
+        <LinkColumn>
+          <LinkTitle>Call</LinkTitle>
+          <LinkItem href="#">+92 331-350781-0</LinkItem>
+        </LinkColumn>
+      </LinkList>
+    </FooterWrapper>
+  );
 };
 
 export default Footer;
