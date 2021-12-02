@@ -22,7 +22,16 @@ const Footer = () => {
           <LinkTitle>Call</LinkTitle>
           <LinkItem href="#">+92 331-350781-0</LinkItem>
         </LinkColumn>
+        <LinkColumn>
+          <LinkTitle>Email</LinkTitle>
+          <LinkItem href="#">Kwahab789@gmail.com</LinkItem>
+        </LinkColumn>
       </LinkList>
+      <SocialIconsContainer>
+        <CompanyContainer>
+          <Slogan>Innovating one project at a time</Slogan>
+        </CompanyContainer>
+      </SocialIconsContainer>
     </FooterWrapper>
   );
 };
