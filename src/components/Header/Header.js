@@ -15,7 +15,7 @@ import {
 const Header = () => (
   <Container>
     <Div1>
-      <Link href="/">
+      <Link href='/'>
         <a
           style={{
             display: "flex",
@@ -23,37 +23,47 @@ const Header = () => (
             color: "white",
           }}
         >
-          <DiCssdeck size="3rem" />
+          <DiCssdeck size='3rem' />
           <span style={{ fontSize: "2.5rem" }}>Porfolio</span>
         </a>
       </Link>
     </Div1>
     <Div2>
       <li>
-        <Link href="#projects">
+        <Link href='#projects'>
           <NavLink>Projects</NavLink>
         </Link>
       </li>
       <li>
-        <Link href="#tech">
+        <Link href='#tech'>
           <NavLink>Technologies</NavLink>
         </Link>
       </li>
       <li>
-        <Link href="#about">
+        <Link href='#about'>
           <NavLink>About</NavLink>
+        </Link>
+      </li>{" "}
+      <li>
+        <Link href='/login/Login'>
+          <NavLink>Login</NavLink>
+        </Link>
+      </li>
+      <li>
+        <Link href='/signUp/SignUp'>
+          <NavLink>Sign up</NavLink>
         </Link>
       </li>
     </Div2>
     <Div3>
-      <SocialIcons href="#">
-        <AiFillGithub size="3rem" />
+      <SocialIcons href='#'>
+        <AiFillGithub size='3rem' />
       </SocialIcons>
-      <SocialIcons href="#">
-        <AiFillLinkedin size="3rem" />
+      <SocialIcons href='#'>
+        <AiFillLinkedin size='3rem' />
       </SocialIcons>
-      <SocialIcons href="#">
-        <AiFillInstagram size="3rem" />
+      <SocialIcons href='#'>
+        <AiFillInstagram size='3rem' />
       </SocialIcons>
     </Div3>
   </Container>
