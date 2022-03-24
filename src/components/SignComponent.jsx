@@ -1,8 +1,19 @@
 import React from "react";
+import { useState } from "react";
+
 import { Formik, Form } from "formik";
 import TextField from "./TextField";
 import * as Yup from "yup";
+import {
+  createUserWithEmailAndPassword,
+  
+} from "firebase/auth";
+import {auth} from '../firebase-config'
+
 const signComponent = () => {
+    
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
   const validate = Yup.object({
     firstName: Yup.string()
       .max(15, "Must be 15 characters or less")
@@ -18,6 +29,20 @@ const signComponent = () => {
       .oneOf([Yup.ref("password"), null], "Password must match")
       .required("Confirm Password is required"),
   });
+  const register = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
+      console.log(user);
+ 
+    } catch (error) {
+      console.log("i will apreciate you")
+      console.log(error.message);
+    }
+  };
   return (
     <div style={{ marginLeft: "100px" }}>
       <Formik
@@ -40,29 +65,38 @@ const signComponent = () => {
                 name='firstName'
                 type='text'
                 placeholder='First Name'
+                
               />
-              <TextField
+              <input
                 label='Last Name'
                 name='lastName'
                 type='text'
                 placeholder='Last Name'
+                
               />
-              <TextField
+              <input
                 label='Email'
                 name='email'
                 type='email'
                 placeholder='Email address'
+                onChange={(event) => {
+                  setRegisterEmail(event.target.value);
+                }}
               />
-              <TextField label='Password' name='password' type='password' />
-              <TextField
+              <input label='Password' name='password' type='password'  onChange={(event) => {
+            setRegisterPassword(event.target.value);
+          }}
+           />
+              {/* <TextField
                 label='Confirm Password'
                 name='confirmPassword'
                 type='password'
-              />
+              /> */}
               <button
                 className='btn btn-primary mt-3 px-5 py-2'
                 style={{ fontSize: "15px" }}
                 type='submit'
+                onClick={register}
               >
                 Register
               </button>
