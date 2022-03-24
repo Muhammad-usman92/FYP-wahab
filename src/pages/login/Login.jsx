@@ -1,7 +1,53 @@
 import React from "react";
+import { useState} from 'react'
 // import "../../styles/login.css";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+
+} from "firebase/auth";
+import {auth } from '../../../src/firebase-config'
+
 
 const Login = () => {
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [registerPassword, setRegisterPassword] = useState("");
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
+  const register = async () => {
+    try {
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        registerEmail,
+        registerPassword
+      );
+      console.log(user);
+ 
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const login = async () => {
+    try {
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <div
       style={{
@@ -35,6 +81,11 @@ const Login = () => {
           placeholder='Email address'
           required
           autofocus
+          //  placeholder="Email..."
+           onChange={(event) => {
+            setLoginEmail(event.target.value);
+          }}
+        
         />
         <br />
         <label for='inputPassword' class='sr-only'>
@@ -47,6 +98,9 @@ const Login = () => {
           class='form-control'
           placeholder='Password'
           required
+          onChange={(event) => {
+            setLoginPassword(event.target.value);
+          }}
         />
         <br />
         <div class='checkbox mb-3'>
@@ -61,6 +115,8 @@ const Login = () => {
           class='btn btn-lg btn-primary btn-block'
           type='submit'
           style={{ padding: "10px", width: "500px", fontSize: "15px" }}
+          
+          onClick={login}
         >
           Log in
         </button>
