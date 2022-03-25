@@ -1,8 +1,8 @@
 import React from "react";
 import { ErrorMessage, useField } from "formik";
-const TextField = ({ label, placeholder, ...props }) => {
+const TextField = ({ label, placeholder, onChange, ...props }) => {
   const [field, meta] = useField(props);
-  console.log(field, meta);
+  // console.log(field, meta);
   return (
     <div className='md-4'>
       <label htmlFor={field.name}> {label} </label>
@@ -20,8 +20,18 @@ const TextField = ({ label, placeholder, ...props }) => {
         autoComplete='off'
         {...field}
         {...props}
+        onKeyUp={onChange}
       />
-      <ErrorMessage className='mt-4' name={field.name} />
+      <div
+        style={{
+          color: "red",
+          fontSize: "12px",
+          marginTop: "-10px",
+          paddingBottom: "5px",
+        }}
+      >
+        <ErrorMessage name={field.name} />
+      </div>
     </div>
   );
 };

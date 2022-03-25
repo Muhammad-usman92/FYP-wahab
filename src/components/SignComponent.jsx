@@ -67,14 +67,14 @@ const signComponent = () => {
                 placeholder='First Name'
                 
               />
-              <input
+              <TextField
                 label='Last Name'
                 name='lastName'
                 type='text'
                 placeholder='Last Name'
                 
               />
-              <input
+              <TextField
                 label='Email'
                 name='email'
                 type='email'
@@ -83,7 +83,7 @@ const signComponent = () => {
                   setRegisterEmail(event.target.value);
                 }}
               />
-              <input label='Password' name='password' type='password'  onChange={(event) => {
+              <TextField label='Password' name='password' type='password'  onChange={(event) => {
             setRegisterPassword(event.target.value);
           }}
            />
